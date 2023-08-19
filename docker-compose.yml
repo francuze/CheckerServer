@@ -1,0 +1,15 @@
+version: "3"
+services:
+  my-node-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+      - "3002:3002"
+    command: sls offline --host=127.0.0.1
+
+networks:
+  default:
+    external:
+      name: host
